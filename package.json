@@ -1,0 +1,11 @@
+{
+  "name": "scraper",
+  "version": "1.0.0",
+  "description": "web scraper to notify me when the price of the TV that i want has reduced to below what it is currently",
+  "main": "scraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gareth Robinson",
+  "license": "ISC"
+}
