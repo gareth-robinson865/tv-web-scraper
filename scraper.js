@@ -8,3 +8,5 @@ async function scrape() {
     const { data } = await axios.get(url);
     console.log(data);
 }
+
+scrape()
