@@ -4,7 +4,7 @@ const cheerio = require('cheerio');
 const url = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/B09YMFT5MQ';
 
 //create an object to hold the product information
-
+const product = {name: '', price: '', link: ''}
 
 async function scrape() {
     //Fetching the data
