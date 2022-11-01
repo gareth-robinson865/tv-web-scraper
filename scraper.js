@@ -15,7 +15,10 @@ async function scrape() {
     const $ = cheerio.load(data) //passing the huge wad of information that is extracted from the url to cheerio
 
     //how to extract the specific information that we want
-
+    //!These are the elements needed to parse
+    //span#productTitle.a-size-large.product-title-word-break ---> title
+    //span.a-price-whole ---> price
+    //div#centerCol.centerColAlign.centerColAlign-bbcxoverride ---> main div to house the lot
 }
 
 scrape()
