@@ -9,6 +9,8 @@ async function scrape() {
     console.log(data);
 
     //use cheerio to load up the specific html information that we are looking for
+    const $ = cheerio.load(data) //passing the huge wad of information that is extracted from the url to cheerio
+    
 }
 
 scrape()
