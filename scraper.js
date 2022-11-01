@@ -7,6 +7,8 @@ async function scrape() {
     //Fetching the data
     const { data } = await axios.get(url);
     console.log(data);
+
+    //use cheerio to load up the specific html information that we are looking for
 }
 
 scrape()
