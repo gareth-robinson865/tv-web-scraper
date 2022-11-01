@@ -6,4 +6,5 @@ const url = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/
 async function scrape() {
     //Fetching the data
     const { data } = await axios.get(url);
+    console.log(data);
 }
