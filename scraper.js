@@ -20,7 +20,7 @@ async function scrape() {
     //span.a-price-whole ---> price
     //div#centerCol.centerColAlign.centerColAlign-bbcxoverride ---> main div to house the lot
     product.name = $(item).find('h1 span#productTitle').text();
-    console.log(product.name)
+    //console.log(product.name)
 }
 
 scrape()
