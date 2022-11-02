@@ -16,9 +16,10 @@ async function scrape() {
 
     //how to extract the specific information that we want
     //!These are the elements needed to parse
-    //span#productTitle.a-size-large.product-title-word-break ---> title
+    // h1 span#productTitle ---> title
     //span.a-price-whole ---> price
     //div#centerCol.centerColAlign.centerColAlign-bbcxoverride ---> main div to house the lot
+    product.name = $(item).find('h1 span#productTitle')
 }
 
 scrape()
