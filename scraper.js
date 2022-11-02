@@ -22,7 +22,7 @@ async function scrape() {
     product.name = $(item).find('h1 span#productTitle').text();
     //console.log(product.name)
     product.url = url;
-    console.log(url);
+    //console.log(url);
 }
 
 scrape()
