@@ -23,7 +23,7 @@ async function scrape() {
     //console.log(product.name)
     product.url = url;
     //console.log(url);
-    const price = $(item).find('span .a-price-whole').first().replace(/[,.]/g, '');
+    const price = $(item).find('span .a-price-whole').first().text().replace(/[,.]/g, '');
     console.log(price);
 }
 
