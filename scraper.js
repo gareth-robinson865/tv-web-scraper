@@ -12,7 +12,7 @@ const url = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/
 //create an object to hold the product information
 const product = {name: '', price: '', link: ''}
 
-const handle = setInterval(scrape, 2000)
+const handle = setInterval(scrape, 10000)
 
 async function scrape() {
     //Fetching the data
@@ -31,7 +31,7 @@ async function scrape() {
     product.price = price;
 
     //sending a message
-    if(product.price < 1100) {
+    if(product.price < 1200) {
        client.messages.create({
         body: `The price of ${product.name} has changed to ${product.price}. Click here to go buy ${product.link}`,
         from: '+15802178958',
@@ -43,7 +43,8 @@ async function scrape() {
        });
     } else {
         console.log('nothing yet')
-        clearInterval(handle);
+        clearInterval(handle)
+        console.log('does this run');
     }
 }
 
