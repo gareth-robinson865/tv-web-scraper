@@ -7,8 +7,6 @@ const url = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/
 //create an object to hold the product information
 const product = {name: '', price: '', link: ''}
 
-console.log(process.env.SENSITIVEINFORMATION);
-
 async function scrape() {
     //Fetching the data
     const { data } = await axios.get(url);
