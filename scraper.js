@@ -20,8 +20,9 @@ async function scrape() {
     //console.log(product.name)
     product.url = url;
     //console.log(url);
-    const price = $(item).find('span .a-price-whole').first().text().replace(/[,.]/g, '');
-    console.log(typeof price);
+    const checkPrice = $(item).find('span .a-price-whole').first().text().replace(/[,.]/g, '');
+    
+    const price = parseInt(checkPrice);
 
 }
 
