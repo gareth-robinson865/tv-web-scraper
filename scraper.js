@@ -1,7 +1,8 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 require('dotenv').config();
-
+const accountSID = process.env.ACCOUNT_SID;
+const authToken = process.env.AUTH_TOKEN
 const url = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/B09YMFT5MQ';
 
 //create an object to hold the product information
