@@ -27,6 +27,9 @@ async function scrape() {
     product.price = price;
 
     //sending a message
+    if(product.price < 1200) {
+        
+    }
 }
 
 scrape()
