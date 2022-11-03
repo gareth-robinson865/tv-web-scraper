@@ -1,5 +1,6 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
+require('dotenv').config();
 
 const url = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/B09YMFT5MQ';
 
@@ -21,6 +22,8 @@ async function scrape() {
     const checkPrice = $(item).find('span .a-price-whole').first().text().replace(/[,.]/g, '');
     const price = parseInt(checkPrice);
     product.price = price;
+
+    //sending a message
 }
 
 scrape()
