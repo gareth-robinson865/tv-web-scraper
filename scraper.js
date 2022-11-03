@@ -31,7 +31,7 @@ async function scrape() {
     product.price = price;
 
     //sending a message
-    if(product.price < 1200) {
+    if(product.price < 1100) {
        client.messages.create({
         body: `The price of ${product.name} has changed to ${product.price}. Click here to go buy ${product.link}`,
         from: '+15802178958',
@@ -43,6 +43,7 @@ async function scrape() {
        });
     } else {
         console.log('nothing yet')
+        clearInterval(handle);
     }
 }
 
