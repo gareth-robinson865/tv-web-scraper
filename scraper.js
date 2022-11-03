@@ -5,14 +5,14 @@ const accountSID = process.env.ACCOUNT_SID;
 const authToken = process.env.AUTH_TOKEN;
 const phone = process.env.PHONE_NUMBER;
 const client = require('twilio')(accountSID, authToken);
-console.log(phone);
+
 
 const url = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/B09YMFT5MQ';
 
 //create an object to hold the product information
 const product = {name: '', price: '', link: ''}
 
-const handle = setInterval(scrape(), 200)
+const handle = setInterval(scrape, 200)
 
 async function scrape() {
     //Fetching the data
@@ -31,7 +31,7 @@ async function scrape() {
     product.price = price;
 
     //sending a message
-    if(product.price < 1200) {
+    if(product.price < 1100) {
        client.messages.create({
         body: `The price of ${product.name} has changed to ${product.price}. Click here to go buy ${product.link}`,
         from: '+15802178958',
