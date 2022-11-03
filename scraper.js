@@ -29,7 +29,9 @@ async function scrape() {
     //sending a message
     if(product.price < 1200) {
        client.messages.create({
-        body: `The price of ${product.name} has changed to ${product.price}. Click here to go buy ${product.link}`
+        body: `The price of ${product.name} has changed to ${product.price}. Click here to go buy ${product.link}`,
+        from: '+15802178958',
+        to: process.env.PHONE_NUMBER
        }) 
     }
 }
