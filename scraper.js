@@ -2,8 +2,10 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 require('dotenv').config();
 const accountSID = process.env.ACCOUNT_SID;
-const authToken = process.env.AUTH_TOKEN
+const authToken = process.env.AUTH_TOKEN;
+const phone = process.env.PHONE_NUMBER;
 const client = require('twilio')(accountSID, authToken);
+console.log(phone);
 
 const url = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/B09YMFT5MQ';
 
@@ -33,7 +35,7 @@ async function scrape() {
        client.messages.create({
         body: `The price of ${product.name} has changed to ${product.price}. Click here to go buy ${product.link}`,
         from: '+15802178958',
-        to: process.env.PHONE_NUMBER,
+        to: phone,
        })
        .then((message) => {
         console.log(message);
