@@ -17,15 +17,10 @@ async function scrape() {
     //how to extract the specific information that we want
     
     product.name = $(item).find('h1 span#productTitle').text();
-    //console.log(product.name)
     product.link = url;
-    //console.log(url);
     const checkPrice = $(item).find('span .a-price-whole').first().text().replace(/[,.]/g, '');
-    
     const price = parseInt(checkPrice);
-
     product.price = price;
-    console.log(product);
 }
 
 scrape()
