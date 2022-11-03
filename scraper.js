@@ -24,6 +24,8 @@ async function scrape() {
     
     const price = parseInt(checkPrice);
 
+    product.price = price;
+
 }
 
 scrape()
