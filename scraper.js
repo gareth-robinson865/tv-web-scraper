@@ -18,7 +18,7 @@ async function scrape() {
     
     product.name = $(item).find('h1 span#productTitle').text();
     //console.log(product.name)
-    product.url = url;
+    product.link = url;
     //console.log(url);
     const checkPrice = $(item).find('span .a-price-whole').first().text().replace(/[,.]/g, '');
     
