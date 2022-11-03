@@ -15,16 +15,13 @@ async function scrape() {
     const $ = cheerio.load(data) //passing the huge wad of information that is extracted from the url to cheerio
     const item =$('div#dp')
     //how to extract the specific information that we want
-    //!These are the elements needed to parse
-    // h1 span#productTitle ---> title
-    //span.a-price-whole ---> price
-    //div#centerCol.centerColAlign.centerColAlign-bbcxoverride ---> main div to house the lot
+    
     product.name = $(item).find('h1 span#productTitle').text();
     //console.log(product.name)
     product.url = url;
     //console.log(url);
     const price = $(item).find('span .a-price-whole').first().text().replace(/[,.]/g, '');
-    //console.log(price);
+    console.log(typeof price);
 
 }
 
