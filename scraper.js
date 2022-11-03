@@ -10,6 +10,8 @@ const url = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/
 //create an object to hold the product information
 const product = {name: '', price: '', link: ''}
 
+const handle = setInterval(scrape(), 200)
+
 async function scrape() {
     //Fetching the data
     const { data } = await axios.get(url);
@@ -31,8 +33,12 @@ async function scrape() {
        client.messages.create({
         body: `The price of ${product.name} has changed to ${product.price}. Click here to go buy ${product.link}`,
         from: '+15802178958',
-        to: process.env.PHONE_NUMBER
-       }) 
+        to: process.env.PHONE_NUMBER,
+       })
+       .then((message) => {
+        console.log(message);
+        
+       });
     }
 }
 
