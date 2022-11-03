@@ -12,7 +12,7 @@ const url = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/
 //create an object to hold the product information
 const product = {name: '', price: '', link: ''}
 
-const handle = setInterval(scrape, 200)
+const handle = setInterval(scrape, 2000)
 
 async function scrape() {
     //Fetching the data
