@@ -13,7 +13,7 @@ const currysUrl = 'https://www.currys.co.uk/products/samsung-qe55s95batxxu-55-sm
 //create an object to hold the product information
 const product = {name: '', price: '', link: ''}
 
-const handle = setInterval(amazonScrape, 10000)
+const handle = setInterval(amazonScrape, 600000)
 
 async function amazonScrape() {
     //Fetching the data
