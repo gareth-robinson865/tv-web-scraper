@@ -10,7 +10,7 @@ const client = require('twilio')(accountSID, authToken);
 const url = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/B09YMFT5MQ';
 
 //create an object to hold the product information
-const product = {name: '', price: '', link: ''}
+const amazonProduct = {name: '', price: '', link: ''}
 
 const handle = setInterval(scrape, 10000)
 
@@ -24,16 +24,16 @@ async function scrape() {
     const item =$('div#dp')
     //how to extract the specific information that we want
     
-    product.name = $(item).find('h1 span#productTitle').text();
-    product.link = url;
+    amazonProduct.name = $(item).find('h1 span#productTitle').text();
+    amazonProduct.link = url;
     const checkPrice = $(item).find('span .a-price-whole').first().text().replace(/[,.]/g, '');
     const price = parseInt(checkPrice);
-    product.price = price;
+    amazonProduct.price = price;
 
     //sending a message
-    if(product.price < 1200) {
+    if(amazonProduct.price < 1200) {
        client.messages.create({
-        body: `The price of ${product.name} has changed to ${product.price}. Click here to go buy ${product.link}`,
+        body: `The price of ${amazonProduct.name} has changed to ${amazonProduct.price}. Click here to go buy ${product.link}`,
         from: '+15802178958',
         to: phone,
        })
@@ -43,8 +43,6 @@ async function scrape() {
        });
     } else {
         console.log('nothing yet')
-        clearInterval(handle)
-        console.log('does this run');
     }
 }
 
