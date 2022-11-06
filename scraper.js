@@ -14,7 +14,7 @@ const product = {name: '', price: '', link: ''}
 
 const handle = setInterval(scrape, 10000)
 
-async function scrape() {
+async function amazonScrape() {
     //Fetching the data
     const { data } = await axios.get(url);
     //console.log(data);
@@ -46,4 +46,4 @@ async function scrape() {
     }
 }
 
-scrape()
+amazonScrape()
