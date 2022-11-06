@@ -7,7 +7,7 @@ const phone = process.env.PHONE_NUMBER;
 const client = require('twilio')(accountSID, authToken);
 
 
-const url = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/B09YMFT5MQ';
+const amazonUrl = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/B09YMFT5MQ';
 
 //create an object to hold the product information
 const amazonProduct = {name: '', price: '', link: ''}
@@ -16,16 +16,16 @@ const handle = setInterval(scrape, 10000)
 
 async function scrape() {
     //Fetching the data
-    const { data } = await axios.get(url);
+    const { amazonData } = await axios.get(amazonUrl);
     //console.log(data);
 
     //use cheerio to load up the specific html information that we are looking for
-    const $ = cheerio.load(data) //passing the huge wad of information that is extracted from the url to cheerio
+    const $ = cheerio.load(amazonData) //passing the huge wad of information that is extracted from the url to cheerio
     const item =$('div#dp')
     //how to extract the specific information that we want
     
     amazonProduct.name = $(item).find('h1 span#productTitle').text();
-    amazonProduct.link = url;
+    amazonProduct.link = amazonUrl;
     const checkPrice = $(item).find('span .a-price-whole').first().text().replace(/[,.]/g, '');
     const price = parseInt(checkPrice);
     amazonProduct.price = price;
