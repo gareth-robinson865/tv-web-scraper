@@ -7,33 +7,33 @@ const phone = process.env.PHONE_NUMBER;
 const client = require('twilio')(accountSID, authToken);
 
 
-const amazonUrl = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/B09YMFT5MQ';
+const url = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/B09YMFT5MQ';
 
 //create an object to hold the product information
-const amazonProduct = {name: '', price: '', link: ''}
+const product = {name: '', price: '', link: ''}
 
 const handle = setInterval(scrape, 10000)
 
 async function scrape() {
     //Fetching the data
-    const { amazonData } = await axios.get(amazonUrl);
+    const { data } = await axios.get(url);
     //console.log(data);
 
     //use cheerio to load up the specific html information that we are looking for
-    const $ = cheerio.load(amazonData) //passing the huge wad of information that is extracted from the url to cheerio
+    const $ = cheerio.load(data) //passing the huge wad of information that is extracted from the url to cheerio
     const item =$('div#dp')
     //how to extract the specific information that we want
     
-    amazonProduct.name = $(item).find('h1 span#productTitle').text();
-    amazonProduct.link = amazonUrl;
+    product.name = $(item).find('h1 span#productTitle').text();
+    product.link = url;
     const checkPrice = $(item).find('span .a-price-whole').first().text().replace(/[,.]/g, '');
     const price = parseInt(checkPrice);
-    amazonProduct.price = price;
+    product.price = price;
 
     //sending a message
-    if(amazonProduct.price < 1200) {
+    if(product.price < 1100) {
        client.messages.create({
-        body: `The price of ${amazonProduct.name} has changed to ${amazonProduct.price}. Click here to go buy ${product.link}`,
+        body: `The price of ${product.name} has changed to ${product.price}. Click here to go buy ${product.link}`,
         from: '+15802178958',
         to: phone,
        })
@@ -43,6 +43,8 @@ async function scrape() {
        });
     } else {
         console.log('nothing yet')
+        clearInterval(handle)
+        console.log('does this run');
     }
 }
 
