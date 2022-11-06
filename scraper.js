@@ -43,8 +43,6 @@ async function scrape() {
        });
     } else {
         console.log('nothing yet')
-        clearInterval(handle)
-        console.log('does this run');
     }
 }
 
