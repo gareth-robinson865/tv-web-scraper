@@ -8,11 +8,12 @@ const client = require('twilio')(accountSID, authToken);
 
 
 const url = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/B09YMFT5MQ';
+const currysUrl = 'https://www.currys.co.uk/products/samsung-qe55s95batxxu-55-smart-4k-ultra-hd-hdr-oled-tv-with-bixby-alexa-and-google-assistant-10238419.html';
 
 //create an object to hold the product information
 const product = {name: '', price: '', link: ''}
 
-const handle = setInterval(scrape, 10000)
+const handle = setInterval(amazonScrape, 10000)
 
 async function amazonScrape() {
     //Fetching the data
