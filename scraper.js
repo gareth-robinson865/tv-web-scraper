@@ -7,7 +7,7 @@ const phone = process.env.PHONE_NUMBER;
 const client = require('twilio')(accountSID, authToken);
 
 
-const url = 'https://www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/B09YMFT5MQ';
+const url = 'www.amazon.co.uk/Samsung-OLED-Built-LaserSlim-Ultrawide/dp/B09YMFT5MQ';
 const currysUrl = 'https://www.currys.co.uk/products/samsung-qe55s95batxxu-55-smart-4k-ultra-hd-hdr-oled-tv-with-bixby-alexa-and-google-assistant-10238419.html';
 
 //create an object to hold the product information
