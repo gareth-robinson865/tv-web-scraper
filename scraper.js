@@ -31,7 +31,7 @@ async function amazonScrape() {
     product.price = price;
 
     //sending a message
-    if(product.price < 1100) {
+    if(product.price < 1000) {
        client.messages.create({
         body: `The price of ${product.name} has changed to ${product.price}. Click here to go buy ${product.link}`,
         from: '+15802178958',
